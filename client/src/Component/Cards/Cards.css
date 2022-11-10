@@ -1,0 +1,12 @@
+
+
+.cartas {
+    border: black 2px solid;
+    border-radius: 7%;
+    width: 250px;
+    background-color: rgba(243,169,190, 0.7);
+   
+}
+.cartas img{
+    margin-top: 10px;
+}

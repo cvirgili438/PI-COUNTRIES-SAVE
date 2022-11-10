@@ -1,0 +1,63 @@
+.imagenPro {    
+    background-image: url('./WallpaperDog-20463686.jpg');    
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size:cover ;
+    overflow: scroll;
+    height: 100vh;
+    
+    
+    
+}
+.fondoPro {
+    background-position: 50% 0;
+}
+
+.cartas {
+    background-color: rgba(243,169,190,255);
+}
+.number{
+    display: flex;
+    width: 50px;
+    
+    justify-content: center;
+    margin-left: 48.5vw;
+    margin-top: 0;
+    
+    
+}
+.number h5 {
+    border: black 2px solid;
+    border-radius: 7%;
+    width: 250px;
+    background-color: rgba(243,169,190, 0.7);
+    
+}
+
+.loading{    
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-items: center;
+    margin-left: 170%;
+    
+    padding: auto;
+      
+
+}
+.h3furioso{
+        background-color: rgba(0, 0, 0, 0.404);
+        color: white;
+        margin-left: 43vw;
+        width: 200px;
+        cursor: default;
+}
+.h3furioso:hover{
+    background-color: rgba(243,169,190, 0.7);
+}
+.select{
+    display:inline-block;
+    margin: 3px;
+    
+    
+}

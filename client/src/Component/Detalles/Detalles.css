@@ -1,0 +1,42 @@
+
+
+.cartitas {
+    margin-top: 50px;
+}
+#back {
+    left: 50px;
+}
+#centro {
+    position: relative;
+    background: #5C97FF;
+    overflow:hidden ;
+    height: 100vh;    
+}
+#centro div {
+    
+    position: relative;
+    z-index: 2;
+}
+#centro::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: url('./Mapa_del_mundo_en_1970.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+#imagen{
+    height: 30%;
+    width: 30%;
+}
+#loading {
+    padding: auto;
+    margin-top: 25%;
+}

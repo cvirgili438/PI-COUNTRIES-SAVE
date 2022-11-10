@@ -1,0 +1,43 @@
+
+#divActivity::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: url('./aeropuerto-blanco-y-negro-660x330.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+#divisor {
+    position: absolute;
+    right: 35%;
+    top: 20%;
+    background-color: mediumaquamarine;
+    opacity: 50%;
+    width: 30%;
+}
+#selectorPais{
+    width: 70%;    
+    margin-top: 20px ;
+    
+}
+
+#nuevito{
+    margin-top: 50px;
+    width: 70%;
+}
+#Actividadss {
+    width: 67%;
+    
+}
+#temporada{
+    margin-top: 20px;
+    width: 70%;
+}
+

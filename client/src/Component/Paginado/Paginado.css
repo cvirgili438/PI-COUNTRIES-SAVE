@@ -1,0 +1,22 @@
+.paginado li {
+    display:inline;
+     padding-left:3px;
+     padding-right:3px;
+    background-color:black;
+    cursor: pointer;
+    opacity: 0.5;
+    
+    
+}
+
+.number {
+    color:white;
+    text-decoration:none;
+}
+.number:hover {
+    color:black;
+    background-color:lightgray;
+}
+.paginado{
+    opacity: 10;
+}
