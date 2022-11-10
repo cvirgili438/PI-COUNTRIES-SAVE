@@ -100,7 +100,7 @@ export function postActivity(payload){
                         return alert(er.response.data)
                     }
                 })
-                if (regulador.length > 1 ){ 
+                if (regulador.length === 0 ){ 
                     let promesas = paises.map(e => {
                     let payload1 = {...payload,code:e}
                     let json = axios.post('http://localhost:3001/Actividad',payload1)               
@@ -146,6 +146,21 @@ export function postActivity(payload){
             })
         }
 
+}
+
+export function deleteActivity(payload){
+    return async function(dispatch){
+        try{
+            var json = await axios.delete(`http://localhost:3001/Actividad/${payload}`)
+            
+        }
+        catch(er){
+            console.log(er.message)
+        }
+        return dispatch({
+            type: DELETE_ACTIVITY,
+        })
+    }
 }
 
 

@@ -5,6 +5,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCountries,getActivities, postActivity } from "../../Action";
 import SearchBar from "./SearchBar.jsx";
+import DeleteActivity from "../DeleteActivity/DeleteActivity";
 
 
 export function validate(input){
@@ -126,6 +127,7 @@ export default function CrearActividad(){
         <div id="divActivity">
             <Link id="back" to='/home' > Atras</Link>
             <div id="divisor">
+                
             { allCountries? (<form  id="actividadesForm">
                 <h3 id="create">Crea tu Actividad</h3>
                 <input required id="Actividadss" placeholder="Actividad" onChange={e => handleName(e)} />
@@ -189,6 +191,7 @@ export default function CrearActividad(){
                 <button onClick={e => handleSubmit(e)}>Crear Datos</button>
             </form>): <h3>Loading</h3>}
             </div>
+            <DeleteActivity />
         </div>
     )
 }

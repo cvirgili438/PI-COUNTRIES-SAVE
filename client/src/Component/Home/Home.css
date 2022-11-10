@@ -26,11 +26,12 @@
 }
 #back {
     position: absolute;
-    background-color:rgba(153, 214, 224, .3) ;      
+    background-color:rgba(153, 214, 224, .5) ;      
     margin: auto;
     border: solid rgba(153, 214, 224, 0.575) 2px;
     border-radius: 20%;
     cursor: pointer;
+    color: black;
     
 }
 #back:hover {

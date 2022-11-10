@@ -61,3 +61,19 @@
     
     
 }
+
+.delete {
+    position: absolute;
+    background-color:rgba(153, 214, 224, .5) ;      
+    margin: auto;
+    right: 10vw;
+    border: solid rgba(153, 214, 224, 0.575) 2px;
+    border-radius: 20%;
+    cursor: pointer;
+    color: black;
+    
+}
+.delete:hover {
+        color:cadetblue;
+        background-color: rgba(153, 214, 224, 0.938);
+}

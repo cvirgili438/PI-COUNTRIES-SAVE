@@ -3,7 +3,9 @@ import './Detalles.css'
 
 
 export default function Cartas({name,img,code,continente,subRegion,capital,area,poblacion,Actividads}){
-    
+    let superCapital = capital
+
+    if (capital.length > 1 ){ superCapital = capital.join(', ')}
     return (
         <div >
             
@@ -11,7 +13,7 @@ export default function Cartas({name,img,code,continente,subRegion,capital,area,
                 <h1>Pais:{name} ({code})</h1>
                 <h3>Continente:{continente}</h3>
                 <h3>Sub Region:{subRegion}</h3>
-                <h4>Capital: {capital}</h4>
+                <h4>Capital: {superCapital}</h4>
                 <h4>Posee una Area de {area} metros cuadrados y una poblacion de {poblacion}</h4>
                 <p>
                     Las actividades que uno puede realizar en este pais son:</p>

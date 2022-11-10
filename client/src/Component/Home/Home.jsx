@@ -93,6 +93,7 @@ export default function Home(){
         <div className={imagen.imagenPro} > 
             <div className="general" >
             <Link id="back" to='/home/Actividades' >Crear Actividad</Link>
+           
               <h3>Ordernar por:</h3>
                 <form id="form"> 
             <select className={imagen.select} onChange={e =>handleOrder(e)}  id="orden" >

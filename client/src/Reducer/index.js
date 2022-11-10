@@ -1,5 +1,5 @@
 
-import {GET_COUNTRIES,FILTER_BY_CONTINENT,FILTER_BY_ORDER, FILTER_BY_POPULATION,FILTER_BY_NAME, GET_ACTIVITIES,FILTER_BY_ACTIVITIES,GET_COUNTRY, POST_ACTIVITY} from '../Action/index.js'
+import {GET_COUNTRIES,FILTER_BY_CONTINENT,FILTER_BY_ORDER, FILTER_BY_POPULATION,FILTER_BY_NAME, GET_ACTIVITIES,FILTER_BY_ACTIVITIES,GET_COUNTRY, POST_ACTIVITY, DELETE_ACTIVITY} from '../Action/index.js'
 
 const initialState= {
     countries:[],
@@ -138,6 +138,10 @@ export default function rootReducer(state=initialState,action){
                 countriesActivity: action.filter === 'All' ? allCountris : action.payload
             }
         case POST_ACTIVITY:
+            return {
+                ...state
+            }
+        case DELETE_ACTIVITY:
             return {
                 ...state
             }
