@@ -16,7 +16,16 @@ router.post('/', async (req,res)=>{
     }
     const busqueda = await Actividad.findOne({
         where:{
-            name:name.toLowerCase()
+            name:name.toLowerCase(),
+            dificultad:dificultad,
+            duracion:duracion,
+            temporada:temporada
+        }
+    })
+    const busqueda2 = await Actividad.findOne({
+        where:{
+            name:name.toLowerCase(),
+            
         }
     })
     if(busqueda){
@@ -26,6 +35,10 @@ router.post('/', async (req,res)=>{
         busqueda.addCountry(country,{through:'Country_Code'})
         return res.status(406).send('Actividad existente, se agrego el/los pais/es a la anterior mencionada')
 
+    }
+
+    if(!busqueda && busqueda2){
+        return res.status(404).send('la actividad que intenta crear, ya existe con otros parametros, porfavor elegir otro nombre')
     }
     const actividad= await Actividad.create({
         name: name.toLowerCase(),
@@ -60,6 +73,21 @@ router.get('/:Activity' , async (req,res)=>{
                 }]
     })
     res.json(countris)
+})
+
+router.delete('/:name',async (req,res)=>{
+    const {name}= req.params;
+    await Actividad.destroy({
+        where: {
+            name : name
+        }
+    })
+    const busqueda = await Actividad.findOne({
+        where:{
+            name:name
+        }
+    })
+    busqueda ? res.status(400).send('No se realizo ningun delete') : res.status(200).send('Borrado con exito')
 })
 
 

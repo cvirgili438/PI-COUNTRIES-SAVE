@@ -76,6 +76,7 @@ export default function Home(){
    function handleClickActiviad(e){
     e.preventDefault()
     dispatch(getActivities())
+    setCurrentPage(1)
    }
    function handleActivity(e){
     e.preventDefault()    
@@ -121,7 +122,7 @@ export default function Home(){
             >
                 <option value='' selected disabled hidden>Actividades Turisticas</option>
                 <option key='All' value="All" >All</option>
-                {actividades.map(e =>{
+                {actividades?.map(e =>{
                     return(
                         <option key={e} value={e}>{e}</option>
                     )
