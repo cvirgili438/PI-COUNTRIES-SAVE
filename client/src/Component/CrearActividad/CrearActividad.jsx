@@ -64,9 +64,7 @@ export default function CrearActividad(){
         })}
     }
     function handleDeletedSelectorPais (e){
-        e.preventDefault()
-        console.log(e.target.value)
-        console.log(input)
+        e.preventDefault()        
         if(e.target.value === 'All'){
             let array= []
             setInput({
@@ -125,10 +123,13 @@ export default function CrearActividad(){
   
     return (
         <div id="divActivity">
+            
             <Link id="back" to='/home' > Atras</Link>
             <div id="divisor">
-                
-            { allCountries? (<form  id="actividadesForm">
+            
+            { allCountries? (
+            <form  id="actividadesForm">
+            
                 <h3 id="create">Crea tu Actividad</h3>
                 <input required id="Actividadss" placeholder="Actividad" onChange={e => handleName(e)} />
                 <div>
@@ -158,7 +159,7 @@ export default function CrearActividad(){
                 </div>
                 <div>                     
                         <select required id="nuevito" onChange={e => handleDuracion(e)}  >
-                            <option value="" selected disabled hidden >Duracion</option>
+                            <option value="" selected   >Duracion</option>
                             <option value="1">1 hora</option>
                             <option value="2">2 horas</option>
                             <option value="3">3 horas</option>
@@ -171,7 +172,7 @@ export default function CrearActividad(){
                 </div>
                 <label>
                     <select required id="temporada" onChange={e =>handleTemporada(e)} >
-                        <option value="" selected disabled hidden > Temporada</option>
+                        <option value="" selected   > Temporada</option>
                         <option value="Invierno">Invierno</option>
                         <option value="Verano">Verano</option>
                         <option value="Otoño">Otoño</option>
@@ -180,7 +181,7 @@ export default function CrearActividad(){
                 </label>
                 <label>
                     <select required  onChange={e =>handleDificultad(e)}>
-                        <option value="" selected disabled hidden> Dificultad</option>
+                        <option value="" selected  > Dificultad</option>
                         <option value="1">Dificultad 1: Muy Facil</option>
                         <option value="2">Dificultad 2: Facil</option>
                         <option value="3">Dificultad 3: Mediana</option>
@@ -190,6 +191,7 @@ export default function CrearActividad(){
                 </label>
                 <button onClick={e => handleSubmit(e)}>Crear Datos</button>
             </form>): <h3>Loading</h3>}
+            
             </div>
             <DeleteActivity />
         </div>

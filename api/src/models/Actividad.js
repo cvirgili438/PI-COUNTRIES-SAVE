@@ -5,8 +5,7 @@ module.exports = (sequelize) => {
         name : {
             type : DataTypes.STRING,
             allowNull : false,
-            unique : true,
-            primaryKey: true
+                       
         },
         dificultad: {
             type: DataTypes.ENUM('1','2','3','4','5'),

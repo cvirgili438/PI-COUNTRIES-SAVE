@@ -86,17 +86,18 @@ export function postActivity(payload){
         return  function(dispatch){
             let paises = payload.code
             if(paises.length > 1 ){
-                let regulador = []
+                const regulador=[]
                 let paisesPrueba = paises.shift()
                 let json = axios.post('http://localhost:3001/Actividad',{...payload,code:paisesPrueba})
-                
-                .catch(er => {
-                    regulador.push(er)
-                    if(er.message.includes('406')){
-                    return alert(er.response.data.concat(' Si quiere crear una actividad diferente, Cambie el nombre'))
+                .then(r =>  console.log(r.response))
+                .catch(er => {                  
+                    regulador.push(er.message)                                
+                    if(er.message.includes('404')){
+                        let html = window.location
+                        alert(er.response.data.concat(' Si quiere crear una actividad diferente, Cambie el nombre'))
+                    return html.reload()
                 }
-                    if (er.message.includes('404')){
-                        
+                    if (er.message.includes('406')){
                         return alert(er.response.data)
                     }
                 })
@@ -106,19 +107,14 @@ export function postActivity(payload){
                     let json = axios.post('http://localhost:3001/Actividad',payload1)               
                     
                      })
-                  Promise.all(promesas)
-                        .then(r => {alert('Se creo correctamente la actividad, redireccionando a HOME');
+                  Promise.all(promesas).then(() =>setTimeout(redireccionar, 5000) )                        
                   function redireccionar(){
                      let html = window.location
-                     html.assign('http://localhost:3000/home')                   
+                     html.assign('http://localhost:3000/home') 
+                     alert('Se creo correctamente la actividad, redireccionando a HOME')             
                     } 
-                    setTimeout (redireccionar(), 5000);
-                              }
-                  )
-                }
-              
-          
-              
+                    
+                }   
             }
             if (paises.length === 1 ){
                 
@@ -128,7 +124,7 @@ export function postActivity(payload){
                    let html = window.location
                    html.assign('http://localhost:3000/home')                   
                   } 
-                  setTimeout (redireccionar(), 5000);
+                  setTimeout (redireccionar, 5000);
             }
                 )
                 .catch(er => {if(er.message.includes('406')){
@@ -151,8 +147,8 @@ export function postActivity(payload){
 export function deleteActivity(payload){
     return async function(dispatch){
         try{
-            var json = await axios.delete(`http://localhost:3001/Actividad/${payload}`)
-            
+            var json = await axios.delete(`http://localhost:3001/Actividad/${payload}`)            
+            alert(json.data)
         }
         catch(er){
             console.log(er.message)

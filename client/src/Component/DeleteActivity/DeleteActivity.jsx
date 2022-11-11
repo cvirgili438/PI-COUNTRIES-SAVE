@@ -25,12 +25,12 @@ export default function DeleteActivity (){
     }
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(deleteActivity(select))       
-        refresh()
+        dispatch(deleteActivity(select))    
+        setTimeout(refresh,1000)
     }
     function refresh(){
         let html = window.location
-        html.reload()             
+        html.assign('http://localhost:3000/home')             
        } 
        
  
@@ -41,11 +41,11 @@ export default function DeleteActivity (){
         <fieldset className={estilo.fieldset}>
             <legend>Elegi la actividad a borrar</legend>
             <select onClick={e =>handleClick(e) } onChange={e=>handleSelect(e)} >
-                <option value={''} selected disabled   hidden >Actividades</option>
+                <option value={''} selected disabled  hidden >Actividades</option>
                 {activities?.map(
                     el => {
                         return (
-                            <option value={el} >{el}</option>
+                            <option key={el}value={el} >{el}</option>
                         )
                     }
                 )}

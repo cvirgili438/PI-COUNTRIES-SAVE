@@ -22,12 +22,14 @@ router.post('/', async (req,res)=>{
             temporada:temporada
         }
     })
+    
     const busqueda2 = await Actividad.findOne({
         where:{
             name:name.toLowerCase(),
             
         }
     })
+    
     if(busqueda){
         let country = await Country.findOne({
             where: {code: code}
