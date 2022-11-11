@@ -9,7 +9,7 @@
 #centro {
     position: relative;
     background: #5C97FF;
-    overflow:hidden ;
+    overflow: scroll ;
     height: 100vh;    
 }
 #centro div {
@@ -35,6 +35,7 @@
 #imagen{
     height: 30%;
     width: 30%;
+    overflow: hidden;
 }
 #loading {
     padding: auto;
