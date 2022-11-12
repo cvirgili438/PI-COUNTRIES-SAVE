@@ -47,9 +47,6 @@ module.exports = (sequelize) => {
     },
     poblacion : {
       type: DataTypes.INTEGER,
-    },
-    createInDB: {
-      type: DataTypes.BOOLEAN
-    }
+    },   
   },{timestamps: false});
 };

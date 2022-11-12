@@ -1,63 +1,117 @@
-const { Country, conn, Activcodead,sequelize } = require('../../src/db.js');
-const { expect } = require('chai');
+const { Country, conn, Actividad,sequelize } = require('../../src/db');
 
-describe('Country model', () => {
-  before(() => conn.authenticate()
-    .catch((err) => {
-      console.error('Unable to connect to the database:', err);
-    }));
-  describe('Valcodeators', () => {
-    beforeEach(() => Country.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valcode name')))
-          .catch(() => done());
-      });
-      it('should work when its a valcode name', () => {
-        Country.create({ name: 'Argentina' });
+
+describe('Country Model', () => {
+  beforeAll(async () => {
+    await conn.sync({ force: true });
+    console.log('en marcha');
+  });
+
+  describe('Parte UNO', () => {
+    it('should not create the Country if name is not send', async () => {
+      expect.assertions(1);
+      try {
+        await Country.create({area: 100, poblacion: 150});
+      } catch (error) {
+        expect(error.message).toBeDefined();
+      }
+    });
+ 
+       
+  
+    it('should create the Country if all required properties are ok', async () => {
+      const Country = await Country.create({
+        code: 'ARG',
+          name: 'Argentina',
+          img: ['imagen de prueba'],
+          capital: ['Buenos Aires'],
+          continente: 'America'
+      })
+      expect(Country.toJSON()).toEqual({
+        code: 'ARG',
+        name: 'Argentina',
+        img: ['imagen de prueba'],
+        capital: ['Buenos Aires'],
+        continente: 'America'
       });
     });
-  });
-});
- describe ('modelo global', ()=>{
- 
-  it('no debe crear un Pais sino se proporcionan los datos necesarios', async()=>{
-    expect.assertions(1)
-    try {
-        await Country.create({
-          name : 'Argentina'
+  
+    it('should not create two Countrys with the same name', async () => {
+      expect.assertions(2);
+      try {
+        const CountryOne = await Country.create({
+          code: 'ARG',
+          name: 'Argentina',
+          img: ['imagen de prueba'],
+          capital: ['Buenos Aires'],
+          continente: 'America'
         })
-    }
-    catch (er){
-      expect(er.message).toBeDefined()
-    }
-  });
-  it('crea correctamente la base un pais ', async () =>{
-    expect.assertions(1)
-   
-      const pais = await Country.create({
-        code :'arg',
-        name :'Argentina',
-        img : 'img de prueba',
-        continente : 'America',
-        capital : 'Buenos Aires',
-        subRegion : 'Amerca del sur ',
-        area : 1213,
-        poblacion: 1234
-      })
-      expect(pais.toJSON()).toEqual({
-        code :'arg',
-        name :'Argentina',
-        img : 'img de prueba',
-        continente : 'America',
-        capital : 'Buenos Aires',
-        subRegion : 'America del sur ',
-        area : 1213,
-        poblacion: 1234
-      })
-    
-   
-    
-  });
- })
+        expect(CountryOne.toJSON()).toEqual({
+          code: 'ARG',
+          name: 'Argentina',
+          img: ['imagen de prueba'],
+          capital: ['Buenos Aires'],
+          continente: 'America'
+        });
+        await Country.create({
+          code: 'SUE',
+          name: 'Argentina',
+          img: ['imagen de prueba'],
+          capital: ['Buenos Aires'],
+          continente: 'America'
+        });
+      } catch (error) {
+        expect(error.message).toBeDefined();
+      }
+    });
+  })
+
+  // describe('Parte DOS', () => {
+  //   it('should not create the Country if name is forbidden', async () => {
+  //     expect.assertions(1);
+  //     try {
+  //       await Country.create({
+  //         code: 'HENRY',
+  //         name: 'Henry',
+  //         hp: 100.0,
+  //         mana: 150.0
+  //       })
+  //     } catch (error) {
+  //       expect(error.message).toBeDefined();
+  //     }
+  //   });
+  
+  //   it('should not create the Country if code is forbidden', async () => {
+  //     expect.assertions(1);
+  //     try {
+  //       await Country.create({
+  //         code: 'HeNrY',
+  //         name: 'Valid Name',
+  //         hp: 100.0,
+  //         mana: 150.0
+  //       })
+  //     } catch (error) {
+  //       expect(error.message).toBeDefined();
+  //     }
+  //   });
+  
+  //   it('should not create the Country if code is forbidden', async () => {
+  //     expect.assertions(1);
+  //     try {
+  //       await Country.create({
+  //         code: 'henRY',
+  //         name: 'Valid Name Two',
+  //         hp: 100.0,
+  //         mana: 150.0
+  //       })
+  //     } catch (error) {
+  //       expect(error.message).toBeDefined();
+  //     }
+  //   });
+  // })
+
+  afterAll(async () => {
+    await conn.sync({ force: true });
+    conn.close();
+  })
+});
