@@ -26,12 +26,18 @@
 }
 #back {
     position: absolute;
-    background-color:rgba(153, 214, 224, .5) ;      
+    background-color:transparent;      
     margin: auto;
     border: solid rgba(153, 214, 224, 0.575) 2px;
     border-radius: 20%;
     cursor: pointer;
     color: black;
+    box-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em rgba(153, 214, 224, 0.575), 0 0 0.5em rgba(153, 214, 224, 0.575),
+    0 0 0.1em rgba(153, 214, 224, 0.575);
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em rgba(153, 214, 224, 0.575), 0 0 0.5em rgba(153, 214, 224, 0.575),
+        0 0 0.1em rgba(153, 214, 224, 0.575);
+    font-family: fantasy;
+    
     
 }
 #back:hover {

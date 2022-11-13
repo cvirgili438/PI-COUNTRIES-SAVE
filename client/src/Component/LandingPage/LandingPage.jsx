@@ -11,7 +11,7 @@ export default function LandingPage(){
             <div id="country"> 
             <h1>Countries App by Carlos Virgili</h1>
             <Link to= '/home'>
-                <button>Inicio</button>
+                <button id="start">Inicio</button>
             </Link>
             </div>
         </div>
