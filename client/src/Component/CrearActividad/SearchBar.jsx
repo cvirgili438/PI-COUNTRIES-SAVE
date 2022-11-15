@@ -17,6 +17,6 @@ export default function SearchBar(){
 
     
     return(
-        <input placeholder="Filtrar Paises" onChange={e => handleInput(e)}/>
+        <input id="searchBar" placeholder="Filtrar Paises" onChange={e => handleInput(e)}/>
     )
 }

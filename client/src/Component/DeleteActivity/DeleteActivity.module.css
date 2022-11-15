@@ -2,8 +2,8 @@
     width: 50%;
     background-color: rgba(245, 219, 179, 0.822);
     border-radius: 10px;
-    margin: auto;
-    position: absolute;    
+    
+    position: relative;    
     left: 23vw;
     opacity: 0.7;
    
