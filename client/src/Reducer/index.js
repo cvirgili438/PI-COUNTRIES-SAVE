@@ -16,7 +16,9 @@ export default function rootReducer(state=initialState,action){
             return {
                 ...state,
                 countries: action.payload,
-                AllCountries: action.payload
+                AllCountries: action.payload,
+                countryDetail:[]
+
             }
         case GET_COUNTRY:
             return{
