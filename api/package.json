@@ -7,6 +7,11 @@
     "start": "node ./index.js",
     "test": "jest --verbose --detectOpenHandles"
   },
+  "jest" : {
+    "moduleNameMapper":{
+      "axios": "axios/dist/node/axios.cjs"
+    }
+  },
   "author": "Henry",
   "license": "ISC",
   "engines": {
