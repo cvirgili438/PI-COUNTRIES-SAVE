@@ -4,7 +4,7 @@ import Home from './Component/Home/Home.jsx';
 import LandingPage from  './Component/LandingPage/LandingPage.jsx'
 import Detalles from './Component/Detalles/Detalles.jsx';
 import CrearActividad from './Component/CrearActividad/CrearActividad.jsx';
-import DeleteActivity from './Component/DeleteActivity/DeleteActivity';
+
 function App() {
   return (
     <BrowserRouter >
